@@ -9,7 +9,7 @@
 </head>
 
 <body>
-     <H1>Quiz Culture General</H1>
+     <H1>Quiz Culture Generale</H1>
 
   <!-- ═══════════════════════════════════════
        ÉCRAN 1 — ACCUEIL
@@ -31,10 +31,27 @@
        ÉCRAN 3 — RÉSULTATS
        Caché au départ. Affiché à la fin du quiz.
   ════════════════════════════════════════ -->
-  <section id="ecran-resultats" class="ecran cache">
+  <section id="ecran-resultats" class="ecran cache" aria-labelledby="titre-result">
+     <header class= "header-resultats">
+          <h1 id="titre-resultats">FIN DU QUIZ</h1>
+     </header>
 
-  </section>
+     <main class="contenu-resultats">
 
+     <section class ="introduction-resultats">
+          <p id="felicitation">Bravo ! Tu es allé au bout du quiz ! J'espère que tu t'es amusé</p>
+     </section>
+
+    <section class="carte-resultats">
+          <h2>Score final</h2>
+          <p id="score">.../10</p>
+          <p id="message-fin" aria-live="polite">Quiz réussi !</p> 
+          <p id="message-fin" aria-live="polite">Désolé tu n'a pas atteint le score</p>
+     </section>
+     <section class ="actions-resultats">
+          <button id="btn-rejouer" type="button">REJOUER</button> 
+     </section>
+</main>
   <script src="script.js" defer></script>
 </body>
 
