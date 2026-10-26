@@ -79,3 +79,55 @@ button:hover{
 .cache {
   display: none;
 }
+#ecran-resultats {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 24px;
+  background-color: white;
+  border-radius: 1.5rem;
+}
+
+#ecran-resultats h1 {
+  margin: 0;
+  padding: 1rem;
+  font-size: 3rem;
+}
+
+#ecran-resultats p {
+  margin: 12px 0;
+  font-size: 1.2rem;
+}
+
+#ecran-resultats #felicitation {
+  font-size: 1.5rem;
+}
+
+.carte-resultats {
+  margin: 24px auto;
+  padding: 20px;
+  background-color: #f2e6f2;
+  border-radius: 12px;
+}
+
+.carte-resultats #score {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+#btn-rejouer,
+#btn-jouer {
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+
+
+@media (max-width: 600px) {
+  #ecran-resultats {
+    margin: 16px;
+    padding: 16px;
+  }
+
+  #ecran-resultats h1 {
+    font-size: 2.2rem;
+  }
+}
