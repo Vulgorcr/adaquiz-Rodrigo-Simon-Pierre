@@ -57,12 +57,14 @@ li{
   }
 
 button{
+  display: block;
   border: none;
   border-radius: 10px;
   background-color: purple;
   color: white;
   box-shadow: 0 6px 20px black;
   cursor: pointer;
+  margin: auto;
 }
 
 button:hover{
