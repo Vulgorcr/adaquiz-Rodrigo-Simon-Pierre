@@ -1,4 +1,4 @@
-const perguntas = [
+const questions = [
   {
     id: 1,
     question: "Quel roi de France était surnommé « le Roi Soleil »?",
