@@ -3,7 +3,7 @@ const questions = [
     id: 1,
     question: "Quel roi de France était surnommé « le Roi Soleil »?",
     reponses: ["Louis XIV", "Louis XVI", "Henri IV", "François Ier"],
-    bonne_reponse: 0
+    bonne_reponse: 1
   },
   {
     id: 2,
@@ -15,23 +15,23 @@ const questions = [
     id: 3,
     question: "Quel est le seul mammifère qui ne peut pas sauter ?",
     reponses: ["Le rhinocéros", "L'hippopotame", "L'éléphant", "Le morse"],
-    bonne_reponse: 1
+    bonne_reponse: 2
   },
   {
     id: 4,
     question: "À quelle vitesse pousse un ongle en moyenne ?",
-    reponses: ["0,1 mm par jour", "0,3 mm par semana", "3 mm par mois", "1 cm par mois"],
-    bonne_reponse: 1
+    reponses: ["0,1 mm par jour", "0,3 mm par semaine", "3 mm par mois", "1 cm par mois"],
+    bonne_reponse: 2
   },
   {
     id: 5,
     question: "Quelle est la durée de vie d'un globule rouge ?",
     reponses: ["7 jours", "30 jours", "120 jours", "1 an"],
-    bonne_reponse: 1
+    bonne_reponse: 0
   },
   {
     id: 6,
-    question: "quel animal vit le plus longtemps ?",
+    question: "Quel animal vit le plus longtemps ?",
     reponses: ["La tortue", "l'eponge de mer", "Le cheval de mer", "La baleine"],
     bonne_reponse: 1
   },
@@ -50,12 +50,12 @@ const questions = [
   {
     id: 9,
     question: "Quelle est la vitesse moyenne atteinte par un parachutiste en position ventre au sol durant la chute libre ?",
-    reponses: ["120km", "260km", "200km", "320km"],
+    reponses: ["120 km/h", "260 km/h", "200 km/h", "320 km/h"],
     bonne_reponse: 2
   },
   {
     id: 10,
-    question: "Quelle pays a remporté le plus grand nombre de coupe du monde de football",
+    question: "Quel pays a remporté le plus grand nombre de coupe du monde de football",
     reponses: ["France", "Brésil", "Allemagne", "Argentine"],
     bonne_reponse: 1
   }
