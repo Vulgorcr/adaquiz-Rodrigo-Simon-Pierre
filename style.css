@@ -122,6 +122,48 @@ button:hover{
   font-size: 1rem;
 }
 
+#liste-reponses {
+    display: grid;
+    gap: 12px;
+}
+
+.bouton-reponse {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #000;
+    background: #fff;
+    color: #000;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.bouton-reponse.correcte {
+    background: #d5f5d5;
+    border-color: #176b2c;
+}
+
+.bouton-reponse.incorrecte {
+    background: #ffe0e0;
+    border-color: #a31313;
+}
+
+.bouton-reponse:focus-visible,
+#btn-jouer:focus-visible,
+#btn-suivant:focus-visible,
+#btn-rejouer:focus-visible {
+    outline: 3px solid #5c1695;
+    outline-offset: 3px;
+}
+
+.bouton-reponse:disabled {
+    cursor: default;
+}
+
+.cache {
+    display: none !important;
+}
+
 
 @media (max-width: 600px) {
   #ecran-resultats {
