@@ -18,22 +18,36 @@
           <section>
           <ul>
                <li><span>&#128165;</span>10 questions <span>&#128165;</span></li>
-               <li><span>&#128165;</span>Multiples choix<span>&#128165;</span></li>
+               <li><span>&#128165;</span>Choix multiples<span>&#128165;</span></li>
                <li><span>&#128165;</span>1 point par question<span>&#128165;</span></li>
           </ul>
           
           <img src="https://media1.tenor.com/m/_oZAe8NmTTwAAAAC/ta.gif" alt="Jogo" width="200">
           <button id= "btn-jouer" type= "button">JOUER</button>
-
+     </div>
      </section>
 
  
   <section id="ecran-question" class="ecran cache">
-    <!-- Section for displaying quiz questions dynamically -->
-  </section>
+     <div class="container">
+      <h1>AdaQuiz</h1>
 
- 
-  <section id="ecran-resultats" aria-labelledby="titre-resultats">
+        <p id="compteur-question">Question 1 / 10</p>
+
+        <progress id="progression" value="1" max="10"></progress>
+
+        <h2 id="texte-question"></h2>
+
+        <div id="liste-reponses"></div>
+
+        <p id="feedback-reponse" aria-live="polite"></p>
+
+        <button id="btn-suivant" class="cache" type="button">Question suivante</button>
+    </div>
+</section>
+    <!-- Section for displaying quiz questions dynamically -->
+
+  <section id="ecran-resultats" class="ecran cache" aria-labelledby="titre-resultats">
      <header class ="header-resultats">
           <h1 id="titre-resultats">FIN DU QUIZ</h1>
      </header>
@@ -47,14 +61,15 @@
     <section class="carte-resultats">
           <p>Score final</p>
           <p id="score">.../10</p>
-          <p id="message-reussi" aria-live="polite">Quiz réussi ! &#127881;</p> 
-          <p id="message-echec" aria-live="polite">Désolé tu n'a pas atteint le score &#128543;</p>
+          <p id="message-reussi" aria-live="polite">Bravo, bien joué! &#127881;</p> 
+          <p id="message-echec" aria-live="polite">Désolé, tu pourras faire mieux la prochaine fois ! &#128543;</p>
      </section>
      <section class ="actions-resultats">
           <button id="btn-rejouer" type="button">REJOUER</button> 
      </section>
 </main>
-     </div>
-  <script src="script.js" defer></script>
+
+<script src="questions.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
