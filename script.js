@@ -88,6 +88,10 @@ reponseDonnee = false;
     progression.max = questions.length;
     progression.value = indexCourant + 1;
 
+    imageQuestion.classList.add('cache');
+    imageQuestion.removeAttribute('src');
+    imageQuestion.alt = '';
+
     // Réinitialiser les réponses précédentes
     listeReponses.replaceChildren();
     feedbackReponse.textContent = '';
@@ -143,6 +147,10 @@ const verifierReponse = (indexChoisi) => {
 
     const questionActuelle = questions[indexCourant];
     const bonneReponse = questionActuelle.bonne_reponse;
+
+    imageQuestion.src = questionActuelle.image;
+    imageQuestion.alt = `Illustration : ${questionActuelle.question}`;
+    imageQuestion.classList.remove('cache');
 
     const boutons = listeReponses.querySelectorAll('button');
     // Désactiver toutes les réponses après le choix.

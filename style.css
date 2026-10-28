@@ -130,6 +130,17 @@ progress {
   overflow: hidden;
 }
 
+#image-question {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    max-height: 280px;
+    height: auto;
+    object-fit: contain;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
 ::-webkit-progress-value {
   background-color: rgb(81, 13, 81);
 }
