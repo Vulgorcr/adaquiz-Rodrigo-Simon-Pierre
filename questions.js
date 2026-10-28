@@ -1,7 +1,7 @@
 const questions = [
   {
     id: 1,
-    question: "Quel roi de France était surnommé « le Roi Soleil ?",
+    question: "Quel roi de France était surnommé « le Roi Soleil »?",
     reponses: ["Louis XIV", "Louis XVI", "Henri IV", "François Ier"],
     bonne_reponse: 0
   },
