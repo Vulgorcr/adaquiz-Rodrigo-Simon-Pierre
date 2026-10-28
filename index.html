@@ -9,8 +9,8 @@
 </head>
 
 <body>
-     <section id="ecran-accueil" class="ecran">
      <div class="container">
+     <section id="ecran-accueil" class="ecran"> </section>
      <header>
           <H1>ADAQUIZ</H1>
           <p>Culture Générale</p>
@@ -28,12 +28,10 @@
      </section>
 
  
-  <section id="ecran-question" class="ecran cache">
-
-  </section>
+  <section id="ecran-question" class="ecran-cache"></section>
 
  
-  <section id="ecran-resultats" aria-labelledby="titre-resultats">
+  <section id="ecran-resultats" class="ecran-cache" aria-labelledby="titre-resultats">
      <header class ="header-resultats">
           <h1 id="titre-resultats">FIN DU QUIZ</h1>
      </header>
@@ -53,9 +51,11 @@
      <section class ="actions-resultats">
           <button id="btn-rejouer" type="button">REJOUER</button> 
      </section>
+
 </main>
-  <script src="script.js" defer></script>
+     <script src="questions.js" defer></script>
+     <script src="script.js" defer></script>
 </body>
-</div>
+     </div>
 
 </html>
