@@ -1,9 +1,7 @@
 /* ════════════════════════════════════════════
   /*   ADAQUIZ — style.css */
 ════════════════════════════════════════════ */
-
-/* La classe .cache masque un écran */
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -11,54 +9,51 @@ body, .container {
   text-align: center;
 }
 
-body{
+body {
   background-color: purple;
   margin: 0;
   padding: 0;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
-h1{
+h1 {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  padding: 1.5rem;
-  font-size: 100px;
+  padding: 1rem;
+  font-size: 50px; 
   color: black;
-  margin-top: 30px;
+  margin-top: 15px;
 }
-.container{
+
+h2 {
+  margin-top: 30px;
+  font-size: 1.5rem;
+}
+
+.container {
   background-color: white;
   border: 3px solid #000;
-  padding: 20px; 
-  max-width: 800px;
-  margin: 20px auto; 
+  padding: 15px; 
+  margin: 15px; 
   border-radius: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
-p{
-  font-size: 20px;
-}
-p{
-  font-size: 50px ;
+p {
+  font-size: 20px; 
 }
 
-ul{ 
+ul { 
   padding: 0;
   margin-left: 0;
   list-style-type: none; 
-  font-size: 20px;
-  
+  font-size: 18px;
 }
 
-h2{
-  margin-top: 40px;
-}
-
-li{
+li {
   margin-bottom: 10px;
-  }
+}
 
-button{
+button {
   display: block;
   border: none;
   border-radius: 10px;
@@ -69,51 +64,13 @@ button{
   margin: auto;
 }
 
-button:hover{
+button:hover {
   transform: translateY(-3px);
   background: linear-gradient(135deg, rgb(55, 0, 55));
- }
+}
 
- button:active{
+button:active {
   transform: translateY(0.5px);
-}
-
-.cache {
-  display: none;
-}
-#ecran-resultats {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 24px;
-  background-color: white;
-  border-radius: 1.5rem;
-}
-
-#ecran-resultats h1 {
-  margin: 0;
-  padding: 1rem;
-  font-size: 3rem;
-}
-
-#ecran-resultats p {
-  margin: 12px 0;
-  font-size: 1.2rem;
-}
-
-#ecran-resultats #felicitation {
-  font-size: 1.5rem;
-}
-
-.carte-resultats {
-  margin: 24px auto;
-  padding: 20px;
-  background-color: #f2e6f2;
-  border-radius: 12px;
-}
-
-.carte-resultats #score {
-  font-size: 3rem;
-  font-weight: bold;
 }
 
 #btn-rejouer,
@@ -123,55 +80,138 @@ button:hover{
 }
 
 #liste-reponses {
-    display: grid;
-    gap: 12px;
+  display: grid;
+  gap: 12px;
 }
 
 .bouton-reponse {
-    width: 100%;
-    padding: 14px;
-    border: 2px solid #000;
-    background: #fff;
-    color: #000;
-    font: inherit;
-    text-align: left;
-    cursor: pointer;
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .bouton-reponse.correcte {
-    background: #d5f5d5;
-    border-color: #176b2c;
+  background: #d5f5d5;
+  border-color: #176b2c;
 }
 
 .bouton-reponse.incorrecte {
-    background: #ffe0e0;
-    border-color: #a31313;
+  background: #ffe0e0;
+  border-color: #a31313;
 }
 
 .bouton-reponse:focus-visible,
 #btn-jouer:focus-visible,
 #btn-suivant:focus-visible,
 #btn-rejouer:focus-visible {
-    outline: 3px solid #5c1695;
-    outline-offset: 3px;
+  outline: 3px solid #5c1695;
+  outline-offset: 3px;
 }
 
 .bouton-reponse:disabled {
-    cursor: default;
+  cursor: default;
 }
 
-.cache {
-    display: none !important;
+.compteur {
+  text-align: left;
+  font-size: 1.1rem;
 }
 
+progress {
+  width: 100%;
+  height: 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-@media (max-width: 600px) {
+::-webkit-progress-value {
+  background-color: rgb(81, 13, 81);
+}
+
+.cache, .ecran-cache {
+  display: none !important;
+}
+
+#ecran-resultats {
+  margin: 15px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 1.5rem;
+}
+
+#ecran-resultats h1 {
+  margin: 0;
+  padding: 0.5rem;
+  font-size: 2.2rem;
+}
+
+#ecran-resultats p {
+  margin: 12px 0;
+  font-size: 1.1rem;
+}
+
+#ecran-resultats #felicitation {
+  font-size: 1.3rem;
+}
+
+.carte-resultats {
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #f2e6f2;
+  border-radius: 12px;
+}
+
+.carte-resultats #score {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 100px; 
+    margin-top: 30px;
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 30px; 
+  }
+
+  .container, 
   #ecran-resultats {
-    margin: 16px;
-    padding: 16px;
+    max-width: 800px;  
+    margin: 40px auto; 
+    padding: 24px;
   }
 
   #ecran-resultats h1 {
-    font-size: 2.2rem;
+    font-size: 3rem;
+  }
+
+  #ecran-resultats p {
+    font-size: 1.2rem;
+  }
+
+  #ecran-resultats #felicitation {
+    font-size: 1.5rem;
+  }
+
+  .carte-resultats {
+    margin: 24px auto;
+    padding: 20px;
+  }
+
+  .carte-resultats #score {
+    font-size: 3rem;
   }
 }

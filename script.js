@@ -159,12 +159,10 @@ const verifierReponse = (indexChoisi) => {
     if (indexChoisi === bonneReponse) {
         score++;
 
-        feedbackReponse.textContent = 'Bonne réponse !';
     } else {
         boutons[indexChoisi].classList.add('incorrecte');
 
-        feedbackReponse.textContent =
-            `Mauvaise réponse. La bonne réponse était : ${questionActuelle.reponses[bonneReponse]}.`;
+       
     }
     
 
