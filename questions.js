@@ -4,6 +4,7 @@ const questions = [
     question: "Quel roi de France était surnommé « le Roi Soleil »?",
     reponses: ["Louis XIV", "Louis XVI", "Henri IV", "François Ier"],
     image: "imagesquestions/question1LouisXIV.jpg",
+    alt: "tableau de Louis 14 en tenue royale",
     bonne_reponse: 0
   },
 
@@ -12,6 +13,7 @@ const questions = [
     question: "Quelle est la capitale de l'Australie ?",
     reponses: ["Sydney", "Melbourne", "Canberra", "Brisbane"],
     image:  "imagesquestions/question2Canberra.jpg",
+    alt: "vue aérienne de nuit de Canberra"
     bonne_reponse: 2
   },
   {
