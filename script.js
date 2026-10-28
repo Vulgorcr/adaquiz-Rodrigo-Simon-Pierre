@@ -22,6 +22,7 @@ const compteurQuestion = document.getElementById('compteur-question');
 const progression = document.getElementById('progression');
 const listeReponses = document.getElementById('liste-reponses');
 const feedbackReponse = document.getElementById('feedback-reponse');
+const imageQuestion = document.getElementById('image-question');
 
 const scoreElement = document.getElementById('score');
 const felicitation = document.getElementById('felicitation');
@@ -81,7 +82,6 @@ const afficherQuestion = () => { const questionActuelle = questions[indexCourant
 reponseDonnee = false;
     // Énoncé et progression
     texteQuestion.textContent = questionActuelle.question;
-
     compteurQuestion.textContent =
         `Question ${indexCourant + 1} / ${questions.length}`;
 
@@ -97,7 +97,7 @@ reponseDonnee = false;
 
     // Créer un bouton accessible pour chaque réponse
     questionActuelle.reponses.forEach((reponse, indexReponse) => {
-        const bouton = document.createElement('button');
+const bouton = document.createElement('button');
 
         bouton.type = 'button';
         bouton.classList.add('bouton-reponse');
@@ -111,7 +111,7 @@ reponseDonnee = false;
     });
 
     // Mettre le focus sur la première réponse
-    const premiereReponse = listeReponses.querySelector('button');
+const premiereReponse = listeReponses.querySelector('button');
 
     if (premiereReponse) {
         premiereReponse.focus();
@@ -166,6 +166,7 @@ const verifierReponse = (indexChoisi) => {
         feedbackReponse.textContent =
             `Mauvaise réponse. La bonne réponse était : ${questionActuelle.reponses[bonneReponse]}.`;
     }
+    
 
     // Afficher le feedback aux technologies d'assistance.
     feedbackReponse.setAttribute('role', 'status');

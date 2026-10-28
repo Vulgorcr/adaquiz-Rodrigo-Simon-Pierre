@@ -3,8 +3,10 @@ const questions = [
     id: 1,
     question: "Quel roi de France était surnommé « le Roi Soleil ?",
     reponses: ["Louis XIV", "Louis XVI", "Henri IV", "François Ier"],
+    image: "imagesquestions/question1Louis-XIV.jpg",
     bonne_reponse: 0
   },
+
   {
     id: 2,
     question: "Quelle est la capitale de l'Australie ?",
@@ -39,7 +41,7 @@ const questions = [
     id: 7,
     question: "Combien de fois par jour bat un cœur humain en moyenne ?",
     reponses: ["50 000", "100 000", "200 000", "500 000"],
-    bonne_reponse: 0
+    bonne_reponse: 1
   },
   {
     id: 8,
@@ -49,7 +51,7 @@ const questions = [
   },
   {
     id: 9,
-    question: "Quelle est la vitesse moyenne atteinte par un parachutiste en position ventre au sol durant la chute libre ?",
+    question: "Quelle est la vitesse moyenne atteinte par un parachutiste, en position ventre au sol, durant la chute libre ?",
     reponses: ["120 km/h", "260 km/h", "200 km/h", "320 km/h"],
     bonne_reponse: 2
   },
