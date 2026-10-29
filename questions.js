@@ -13,7 +13,7 @@ const questions = [
     question: "Quelle est la capitale de l'Australie ?",
     reponses: ["Sydney", "Melbourne", "Canberra", "Brisbane"],
     image:  "imagesquestions/question2Canberra.jpg",
-    alt: "vue aérienne de nuit de Canberra"
+    alt: "vue aérienne de nuit de Canberra",
     bonne_reponse: 2
   },
   {
