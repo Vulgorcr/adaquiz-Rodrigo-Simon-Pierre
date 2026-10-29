@@ -208,8 +208,7 @@ const afficherResultats = () => {
         felicitation.textContent = 'Bravo, bien joué !';
         messageReussi.classList.remove('cache');
     } else {
-        felicitation.textContent =
-            '';
+        felicitation.textContent =           
 
         messageEchec.classList.remove('cache');
     }
