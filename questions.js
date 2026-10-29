@@ -41,7 +41,7 @@ const questions = [
     id: 6,
     question: "Quel animal vit le plus longtemps ?",
     reponses: ["La tortue", "L'éponge de mer", "Le cheval de mer", "La baleine"],
-    image:  "imagesquestions/question6tortue.jpg",
+    image:  "imagesquestions/question6Epongedemer.jpg",
     bonne_reponse: 1
   },
   {
