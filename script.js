@@ -1,10 +1,3 @@
-// ════════════════════════════════════════════
-//   ADAQUIZ — script.js
-//   Certaines fonctions sont déjà écrites.
-//   Les fonctions marquées TODO sont à compléter.
-// ════════════════════════════════════════════
-
-
 // ── Sélection des éléments DOM ──────────────
 // Ces lignes récupèrent les éléments HTML par leur id.
 // Tu n'as pas besoin de les modifier.
@@ -34,9 +27,8 @@ const titreResultats = document.getElementById('titre-resultats');
 //... Crée autant de constantes que d'éléments HTML à récupérer
 
 
-// ── État du quiz ─────────────────────────────
-// Ces variables stockent les données en cours de partie.
-// Tu n'as pas besoin de les modifier.
+btnJouer.addEventListener("click", démarrerQuiz);
+btnRejouer.addEventListener("click", démarrerQuiz);
 
 let indexCourant = 0    // numéro de la question en cours (commence à 0)
 let score = 0    // nombre de bonnes réponses
@@ -60,24 +52,24 @@ const afficher = (ecran) => {
   ecran.classList.remove('cache')
 };
 
+function chargerQuestion() {
+  if (indexQuestionActuelle >= questions.length) 
+    afficherEcranResultats();
+    return;
+  }
 
-// ════════════════════════════════════════════
-//   TODO — Fonctions à compléter
-// ════════════════════════════════════════════
+  const q = questions[indexQuestionActuelle];
 
+ 
+  ecranQuestion.innerHTML = `
+    <header>
+      <h2>Question ${q.id} / ${questions.length}</h2>
+      <p id="intitule-question">${q.question}</p>
+    </header>
+    <section id="options-conteneur"></section>
+  `;
 
-// ── TODO : afficherQuestion ──────────────────
-// Cette fonction doit afficher la question en cours.
-// Elle est appelée au début de chaque nouvelle question.
-//
-// Ce qu'elle doit faire :
-//   1. Récupérer la question courante : questions[indexCourant]
-//   2. Mettre à jour la barre de progression
-//   3. Mettre à jour le compteur ("Question X / Y")
-//   4. Afficher le texte de la question dans #texte-question
-//   5. Cacher le bouton "Question suivante"
-//   6. Vider #liste-reponses, puis créer un bouton pour chaque réponse
-//      Chaque bouton doit appeler verifierReponse() au clic
+  const conteneurOptions = document.getElementById("options-conteneur");
 
 const afficherQuestion = () => { const questionActuelle = questions[indexCourant];
 reponseDonnee = false;
@@ -125,18 +117,12 @@ const premiereReponse = listeReponses.querySelector('button');
 
   // Écris ton code ici
 
-
-// ── TODO : verifierReponse ───────────────────
-// Cette fonction est appelée quand une apprenante clique sur une réponse.
-// Elle reçoit en paramètre l'index de la réponse choisie (0, 1, 2 ou 3).
-//
-// Ce qu'elle doit faire :
-//   1. Récupérer la question courante
-//   2. Désactiver tous les boutons de réponse
-//   3. Colorier en vert la bonne réponse (ajouter la classe "correcte")
-//   4. Si la réponse choisie est mauvaise, la colorier en rouge ("incorrecte")
-//   5. Si la réponse est bonne, incrémenter le score
-//   6. Afficher le bouton "Question suivante"
+function vérifierRéponse(indexSelectionne) {
+  const q = questions[indexQuestionActuelle];
+}
+  if (indexSelectionne === q.bonne_reponse) {
+    score++;
+  }
 
 // Empêcher plusieurs réponses à la même question.
 const verifierReponse = (indexChoisi) => {
@@ -187,14 +173,12 @@ const verifierReponse = (indexChoisi) => {
     btnSuivant.focus();
 };
 
-
-// ── TODO : afficherResultats ─────────────────
-// Cette fonction est appelée quand toutes les questions ont été répondues.
-//
-// Ce qu'elle doit faire :
-//   1. Afficher le score dans #score-final (ex. "4 / 7")
-//   2. Afficher un message dans #message-fin selon le score
-//   3. Appeler afficher(ecranResultats) pour passer à l'écran résultats
+function afficherEcranResultats() {
+  ecranAccueil.classList.add("ecran-cache");
+  ecranQuestion.classList.add("ecran-cache");
+  ecranResultats.classList.remove("ecran-cache");
+}
+  elementScore.textContent = `${score} / ${questions.length}`;
 
 const afficherResultats = () => {
     // Afficher le score final.
