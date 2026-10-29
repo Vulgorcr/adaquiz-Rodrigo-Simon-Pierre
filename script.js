@@ -30,6 +30,7 @@ const messageReussi = document.getElementById('message-reussi');
 const messageEchec = document.getElementById('message-echec');
 const titreResultats = document.getElementById('titre-resultats');
 
+
 //... Crée autant de constantes que d'éléments HTML à récupérer
 
 
@@ -210,11 +211,9 @@ const afficherResultats = () => {
         felicitation.textContent = 'Bravo, bien joué !';
         messageReussi.classList.remove('cache');
     } else {
-        felicitation.textContent =           
-
+       
         messageEchec.classList.remove('cache');
     }
-
     // Afficher l'écran des résultats.
     afficher(ecranResultats);
 
@@ -266,18 +265,89 @@ btnRejouer.addEventListener('click', () => {
 
     // Rendre le focus au bouton Jouer.
     btnJouer.focus();
+}); 
+
+let animationId = null;
+let particules = [];
+
+function initFeuArtifice() {
+  const canvas = document.getElementById('canvas-artifice');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  particules = [];
+
+  function creerExplosion(x, y) {
+    const nombreParticules = 55;
+    const couleur = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    for (let i = 0; i < nombreParticules; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const vitesse = Math.random() * 4 + 1;
+      particules.push({
+        x: x, y: y,
+        vx: Math.cos(angle) * vitesse,
+        vy: Math.sin(angle) * vitesse,
+        alpha: 1, couleur: couleur
+      });
+    }
+  }
+
+  function boucleAnimation() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (Math.random() < 0.05) {
+      creerExplosion(Math.random() * canvas.width, Math.random() * (canvas.height * 0.6));
+    }
+    for (let i = particules.length - 1; i >= 0; i--) {
+      const p = particules[i];
+      p.x += p.vx; p.y += p.vy; p.vy += 0.05; p.alpha -= 0.015;
+      if (p.alpha <= 0) { particules.splice(i, 1); continue; }
+      ctx.save();
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.couleur;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+    animationId = requestAnimationFrame(boucleAnimation);
+  }
+  boucleAnimation();
+}
+
+const stopperAnimationArtifice = () => {
+  if (animationId) {
+    cancelAnimationFrame(animationId);
+    animationId = null;
+  }
+  const canvas = document.getElementById('canvas-artifice');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+};
+
+// Arrête l'animation si on relance une partie
+document.getElementById('btn-jouer')?.addEventListener('click', stopperAnimationArtifice);
+document.getElementById('btn-rejouer')?.addEventListener('click', stopperAnimationArtifice);
+
+// Redimensionne proprement si la taille d'écran change
+window.addEventListener('resize', () => {
+  const canvas = document.getElementById('canvas-artifice');
+  if (canvas && document.getElementById('ecran-resultats') && !document.getElementById('ecran-resultats').classList.contains('cache') && score >= 7) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
 });
 
-
-
-
-
-// ── TODO : écouteurs d'événements ───────────
-// Branche les boutons sur les bonnes fonctions.
-//
-// À faire :
-//   - btn-commencer → afficher l'écran question + appeler afficherQuestion()
-//   - btn-suivant   → passer à la question suivante ou aux résultats
-//   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
-
-// Écris ton code ici
+// Déclencheur automatique branché sur le bouton "Suivant" de la dernière question
+document.getElementById('btn-suivant')?.addEventListener('click', () => {
+  // Le délai de 10ms permet de laisser votre fonction afficherResultats s'exécuter d'abord
+  setTimeout(() => {
+    const ecranResultatsVisivel = !document.getElementById('ecran-resultats')?.classList.contains('cache');
+    if (ecranResultatsVisivel && score >= 7) {
+      initFeuArtifice();
+    }
+  }, 10);
+});
