@@ -170,7 +170,8 @@ const verifierReponse = (indexChoisi) => {
     } else {
         boutons[indexChoisi].classList.add('incorrecte');
 
-       
+       feedbackReponse.textContent =
+            `Mauvaise réponse. La bonne réponse était : ${questionActuelle.reponses[bonneReponse]}.`;
     }
     
 
