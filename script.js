@@ -15,6 +15,7 @@ const compteurQuestion = document.getElementById('compteur-question');
 const progression = document.getElementById('progression');
 const listeReponses = document.getElementById('liste-reponses');
 const feedbackReponse = document.getElementById('feedback-reponse');
+const imageQuestion = document.getElementById('image-question');
 
 const scoreElement = document.getElementById('score');
 const felicitation = document.getElementById('felicitation');
@@ -73,12 +74,15 @@ const afficherQuestion = () => { const questionActuelle = questions[indexCourant
 reponseDonnee = false;
     // Énoncé et progression
     texteQuestion.textContent = questionActuelle.question;
-
     compteurQuestion.textContent =
         `Question ${indexCourant + 1} / ${questions.length}`;
 
     progression.max = questions.length;
     progression.value = indexCourant + 1;
+
+    imageQuestion.classList.add('cache');
+    imageQuestion.removeAttribute('src');
+    imageQuestion.alt = '';
 
     // Réinitialiser les réponses précédentes
     listeReponses.replaceChildren();
@@ -89,7 +93,7 @@ reponseDonnee = false;
 
     // Créer un bouton accessible pour chaque réponse
     questionActuelle.reponses.forEach((reponse, indexReponse) => {
-        const bouton = document.createElement('button');
+const bouton = document.createElement('button');
 
         bouton.type = 'button';
         bouton.classList.add('bouton-reponse');
@@ -103,7 +107,7 @@ reponseDonnee = false;
     });
 
     // Mettre le focus sur la première réponse
-    const premiereReponse = listeReponses.querySelector('button');
+const premiereReponse = listeReponses.querySelector('button');
 
     if (premiereReponse) {
         premiereReponse.focus();
@@ -130,6 +134,10 @@ const verifierReponse = (indexChoisi) => {
     const questionActuelle = questions[indexCourant];
     const bonneReponse = questionActuelle.bonne_reponse;
 
+    imageQuestion.src = questionActuelle.image;
+    imageQuestion.alt = `Illustration : ${questionActuelle.question}`;
+    imageQuestion.classList.remove('cache');
+
     const boutons = listeReponses.querySelectorAll('button');
     // Désactiver toutes les réponses après le choix.
     boutons.forEach((bouton) => {
@@ -145,13 +153,12 @@ const verifierReponse = (indexChoisi) => {
     if (indexChoisi === bonneReponse) {
         score++;
 
-        feedbackReponse.textContent = 'Bonne réponse !';
     } else {
         boutons[indexChoisi].classList.add('incorrecte');
 
-        feedbackReponse.textContent =
-            `Mauvaise réponse. La bonne réponse était : ${questionActuelle.reponses[bonneReponse]}.`;
+       
     }
+    
 
     // Afficher le feedback aux technologies d'assistance.
     feedbackReponse.setAttribute('role', 'status');
@@ -184,8 +191,7 @@ const afficherResultats = () => {
         felicitation.textContent = 'Bravo, bien joué !';
         messageReussi.classList.remove('cache');
     } else {
-        felicitation.textContent =
-            '';
+        felicitation.textContent =           
 
         messageEchec.classList.remove('cache');
     }
