@@ -23,12 +23,14 @@ const progression = document.getElementById('progression');
 const listeReponses = document.getElementById('liste-reponses');
 const feedbackReponse = document.getElementById('feedback-reponse');
 const imageQuestion = document.getElementById('image-question');
+const messageOnFire = document.getElementById('message-on-fire');
 
 const scoreElement = document.getElementById('score');
 const felicitation = document.getElementById('felicitation');
 const messageReussi = document.getElementById('message-reussi');
 const messageEchec = document.getElementById('message-echec');
 const titreResultats = document.getElementById('titre-resultats');
+let bonnesReponsesConsecutives = 0;
 
 //... Crée autant de constantes que d'éléments HTML à récupérer
 
@@ -96,12 +98,14 @@ reponseDonnee = false;
     listeReponses.replaceChildren();
     feedbackReponse.textContent = '';
 
-    // Cacher le bouton Suivant jusqu'à la réponse.
+    // Cacher le bouton Suivant et le message on Fire jusqu'à la réponse.
     btnSuivant.classList.add('cache');
+    messageOnFire.classList.add('cache');
+    messageOnFire.classList.remove('animation-on-fire');
 
     // Créer un bouton accessible pour chaque réponse
     questionActuelle.reponses.forEach((reponse, indexReponse) => {
-const bouton = document.createElement('button');
+        const bouton = document.createElement('button');
 
         bouton.type = 'button';
         bouton.classList.add('bouton-reponse');
@@ -121,6 +125,7 @@ const premiereReponse = listeReponses.querySelector('button');
         premiereReponse.focus();
     }
 };
+
 
   // Écris ton code ici
 
@@ -153,6 +158,7 @@ const verifierReponse = (indexChoisi) => {
     imageQuestion.classList.remove('cache');
 
     const boutons = listeReponses.querySelectorAll('button');
+
     // Désactiver toutes les réponses après le choix.
     boutons.forEach((bouton) => {
         bouton.disabled = true;
@@ -164,17 +170,34 @@ const verifierReponse = (indexChoisi) => {
     }
 
     // Comparer la réponse choisie à la bonne réponse.
-    if (indexChoisi === bonneReponse) {
-        score++;
+ 
+if (indexChoisi === bonneReponse) {
+    score++;
+    bonnesReponsesConsecutives++;
 
-        feedbackReponse.textContent = 'Bonne réponse !'
-    } else {
-        boutons[indexChoisi].classList.add('incorrecte');
+    feedbackReponse.textContent = 'Bonne réponse !';
+    feedbackReponse.className = 'feedback correcte-texte';
 
-       feedbackReponse.textContent =
-            `Mauvaise réponse. La bonne réponse était : ${questionActuelle.reponses[bonneReponse]}.`;
+    // Déclencher l'animation après 3 bonnes réponses consécutives.
+    if (bonnesReponsesConsecutives === 3) {
+        messageOnFire.classList.remove('cache');
+        messageOnFire.classList.add('animation-on-fire');
     }
 
+} else {
+    boutons[indexChoisi].classList.add('incorrecte');
+
+    // Remettre le compteur à zéro.
+    bonnesReponsesConsecutives = 0;
+
+    messageOnFire.classList.add('cache');
+    messageOnFire.classList.remove('animation-on-fire');
+
+    feedbackReponse.textContent =
+        `Mauvaise réponse. La bonne réponse était : ${questionActuelle.reponses[bonneReponse]}.`;
+
+    feedbackReponse.className = 'feedback incorrecte-texte';
+}
     
 
     // Afficher le feedback aux technologies d'assistance.
@@ -225,6 +248,7 @@ const afficherResultats = () => {
 btnJouer.addEventListener('click', () => {
     if (!Array.isArray(questions) || questions.length === 0) {
         return;
+    bonnesReponsesConsecutives = 0;
     }
 
     // Réinitialiser le quiz.
@@ -260,6 +284,7 @@ btnRejouer.addEventListener('click', () => {
     indexCourant = 0;
     score = 0;
     reponseDonnee = false;
+    bonnesReponsesConsecutives = 0;
 
     // Retourner à l'accueil.
     afficher(ecranAccueil);
