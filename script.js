@@ -30,6 +30,7 @@ const felicitation = document.getElementById('felicitation');
 const messageReussi = document.getElementById('message-reussi');
 const messageEchec = document.getElementById('message-echec');
 const titreResultats = document.getElementById('titre-resultats');
+const felicitation2 = document.getElementById('felications2');
 let bonnesReponsesConsecutives = 0;
 
 
@@ -231,7 +232,7 @@ const afficherResultats = () => {
     const pourcentage = (score / questions.length) * 100;
 
     if (pourcentage >= 50) {
-        felicitation.textContent = 'Bravo, bien joué !';
+        felicitation2.textContent = 'WAOUH Super score !';
         messageReussi.classList.remove('cache');
     } else {
        

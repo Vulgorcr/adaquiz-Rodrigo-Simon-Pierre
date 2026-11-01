@@ -13,7 +13,7 @@ body {
   background-color: purple;
   margin: 0;
   padding: 0;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Arial', Times, serif;
 }
 
 h1 {
@@ -78,7 +78,36 @@ button:active {
   padding: 12px 24px;
   font-size: 1rem;
 }
+/* Bouton Question suivante */
+#btn-suivant {
+  background: linear-gradient(135deg, #581c87, #7e22ce);
+  color: #ffffff;
+  border: 2px solid #581c87;
+  border-radius: 12px;
+  padding: 14px 28px;
+  margin: 25px auto 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+#btn-suivant:hover {
+  background: linear-gradient(135deg, #7e22ce, #9333ea);
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.3);
+}
+
+#btn-suivant:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#btn-suivant:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 4px;
+}
 #liste-reponses {
   display: grid;
   gap: 12px;
@@ -149,26 +178,44 @@ progress {
   display: none !important;
 }
 
-#ecran-resultats {
-  margin: 15px;
-  padding: 16px;
-  background-color: white;
-  border-radius: 1.5rem;
+.introduction-resultats {
+  background-color: #ffffff;
+  padding: 20px 15px;
+  margin: 15px 0;
+  border-radius: 12px;
 }
 
-#ecran-resultats h1 {
-  margin: 0;
-  padding: 0.5rem;
-  font-size: 2.2rem;
+.introduction-resultats h2 {
+  color: #581c87;
+  font-family: Impact, sans-serif;
+  font-size: 2rem;
+  margin: 10px 0;
 }
 
-#ecran-resultats p {
-  margin: 12px 0;
-  font-size: 1.1rem;
+.introduction-resultats p {
+  color: #29202f;
+  font-size: 1rem;
+  margin: 10px 0;
 }
 
-#ecran-resultats #felicitation {
-  font-size: 1.3rem;
+.introduction-resultats .sous-texte-resultats {
+  color: #581c87;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+/* Carte du score */
+.carte-resultats {
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #f2e6f2;
+  border-radius: 12px;
+}
+
+.carte-resultats #score {
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 .carte-resultats {
@@ -234,16 +281,28 @@ progress {
   }
 
   #ecran-resultats h1 {
-    font-size: 3rem;
-  }
+  font-size: 3rem;
+}
 
-  #ecran-resultats p {
-    font-size: 1.2rem;
-  }
+#ecran-resultats p {
+  font-size: 1.2rem;
+}
 
-  #ecran-resultats #felicitation {
-    font-size: 1.5rem;
-  }
+.introduction-resultats {
+  padding: 35px;
+}
+
+.introduction-resultats h2 {
+  font-size: 2.5rem;
+}
+
+.introduction-resultats p {
+  font-size: 1.2rem;
+}
+
+.introduction-resultats .sous-texte-resultats {
+  font-size: 1rem;
+}
 
   .carte-resultats {
     margin: 24px auto;
@@ -267,4 +326,5 @@ progress {
   height: 100%;
   pointer-events: none; 
   z-index: 999;
+}
 }
